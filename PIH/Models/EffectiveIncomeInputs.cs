@@ -3,42 +3,47 @@ namespace PIH.Models
     public struct EffectiveIncomeInputs
     {
         public EffectiveIncomeInputs(
-            float laborIncome,
-            float transferIncome,
-            float employeeProfitShare,
-            float liquidWealth,
-            float smoothedIncomeAdjustment,
-            float wealthReturnRatePerDay,
-            float dailyWealthIncomeCap,
-            int liquidWealthBufferDays)
+            float currentIncome,
+            float smoothedObservedIncome,
+            float workerContribution,
+            float nonWorkerPotentialContribution,
+            float studentPotentialContribution,
+            float guaranteedTransferAnchor,
+            float attachmentScore,
+            float housingCostPerDay,
+            float vehicleSignal,
+            float liquidWealthSignal)
         {
-            LaborIncome = laborIncome;
-            TransferIncome = transferIncome;
-            EmployeeProfitShare = employeeProfitShare;
-            LiquidWealth = liquidWealth;
-            SmoothedIncomeAdjustment = smoothedIncomeAdjustment;
-            WealthReturnRatePerDay = wealthReturnRatePerDay;
-            DailyWealthIncomeCap = dailyWealthIncomeCap;
-            LiquidWealthBufferDays = liquidWealthBufferDays;
+            CurrentIncome = currentIncome;
+            SmoothedObservedIncome = smoothedObservedIncome;
+            WorkerContribution = workerContribution;
+            NonWorkerPotentialContribution = nonWorkerPotentialContribution;
+            StudentPotentialContribution = studentPotentialContribution;
+            GuaranteedTransferAnchor = guaranteedTransferAnchor;
+            AttachmentScore = attachmentScore;
+            HousingCostPerDay = housingCostPerDay;
+            VehicleSignal = vehicleSignal;
+            LiquidWealthSignal = liquidWealthSignal;
         }
 
-        public float LaborIncome { get; }
+        public float CurrentIncome { get; }
 
-        public float TransferIncome { get; }
+        public float SmoothedObservedIncome { get; }
 
-        public float EmployeeProfitShare { get; }
+        public float WorkerContribution { get; }
 
-        public float LiquidWealth { get; }
+        public float NonWorkerPotentialContribution { get; }
 
-        public float SmoothedIncomeAdjustment { get; }
+        public float StudentPotentialContribution { get; }
 
-        public float WealthReturnRatePerDay { get; }
+        public float GuaranteedTransferAnchor { get; }
 
-        public float DailyWealthIncomeCap { get; }
+        public float AttachmentScore { get; }
 
-        public int LiquidWealthBufferDays { get; }
+        public float HousingCostPerDay { get; }
 
-        public float BaseFlowIncome => LaborIncome + TransferIncome + EmployeeProfitShare;
+        public float VehicleSignal { get; }
+
+        public float LiquidWealthSignal { get; }
     }
 }
-

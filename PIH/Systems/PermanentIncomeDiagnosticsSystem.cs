@@ -1,5 +1,4 @@
 using Game;
-using PIH.Patches;
 using UnityEngine.Scripting;
 
 namespace PIH.Systems
@@ -7,29 +6,24 @@ namespace PIH.Systems
     [Preserve]
     public partial class PermanentIncomeDiagnosticsSystem : GameSystemBase
     {
-        private bool m_LoggedPatchPlan;
+        private bool m_LoggedPendingIntegration;
 
         protected override void OnCreate()
         {
             base.OnCreate();
-            m_LoggedPatchPlan = false;
+            m_LoggedPendingIntegration = false;
         }
 
         protected override void OnUpdate()
         {
-            if (m_LoggedPatchPlan || Mod.Settings == null || !Mod.Settings.EnableDiagnostics)
+            if (m_LoggedPendingIntegration || Mod.Settings == null || !Mod.Settings.EnableDiagnostics)
             {
                 return;
             }
 
-            for (int i = 0; i < PatchPlanRegistry.Targets.Count; i++)
-            {
-                HousingAffordabilityPatchTarget target = PatchPlanRegistry.Targets[i];
-                Mod.log.Info(
-                    $"PIH patch target -> system={target.SystemName}, hook={target.HookPoint}, optional={target.Optional}, rationale={target.Rationale}");
-            }
-
-            m_LoggedPatchPlan = true;
+            Mod.log.Info(
+                "PIH diagnostics scaffold enabled, but live household member/cache integration is not wired yet. No synthetic household sample data is emitted.");
+            m_LoggedPendingIntegration = true;
         }
     }
 }

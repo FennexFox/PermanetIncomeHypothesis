@@ -32,7 +32,7 @@ namespace PIH
 
             log.Info($"Resolved mod version {ModVersion}");
 
-            updateSystem.UpdateAfter<PermanentIncomeRuntimeSystem, SimulationSystem>(SystemUpdatePhase.GameSimulation);
+            updateSystem.UpdateAfter<HouseholdPermanentIncomeCacheSystem, SimulationSystem>(SystemUpdatePhase.GameSimulation);
             updateSystem.UpdateAfter<PermanentIncomeDiagnosticsSystem, SimulationSystem>(SystemUpdatePhase.LateUpdate);
 
             m_Setting = new Setting(this);

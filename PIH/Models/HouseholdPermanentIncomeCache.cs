@@ -1,17 +1,15 @@
 namespace PIH.Models
 {
-    public struct EffectiveIncomeBreakdown
+    public struct HouseholdPermanentIncomeCache
     {
-        public EffectiveIncomeBreakdown(
+        public HouseholdPermanentIncomeCache(
             float currentIncome,
             float smoothedObservedIncome,
-            float observedBaseIncome,
             float workerContribution,
             float nonWorkerPotentialContribution,
             float studentPotentialContribution,
             float guaranteedTransferAnchor,
             float earningsAnchorRaw,
-            float structuralAnchorRaw,
             float attachmentScore,
             float earningsAnchorCap,
             float cappedEarningsAnchor,
@@ -21,17 +19,18 @@ namespace PIH.Models
             float housingCostPerDay,
             float housingBurdenRatio,
             HousingConsistencyState housingConsistencyState,
-            float effectiveIncome)
+            float effectiveIncome,
+            int lastUpdatedDay,
+            int updatePartition,
+            PermanentIncomeCacheConfidence confidence)
         {
             CurrentIncome = currentIncome;
             SmoothedObservedIncome = smoothedObservedIncome;
-            ObservedBaseIncome = observedBaseIncome;
             WorkerContribution = workerContribution;
             NonWorkerPotentialContribution = nonWorkerPotentialContribution;
             StudentPotentialContribution = studentPotentialContribution;
             GuaranteedTransferAnchor = guaranteedTransferAnchor;
             EarningsAnchorRaw = earningsAnchorRaw;
-            StructuralAnchorRaw = structuralAnchorRaw;
             AttachmentScore = attachmentScore;
             EarningsAnchorCap = earningsAnchorCap;
             CappedEarningsAnchor = cappedEarningsAnchor;
@@ -42,13 +41,14 @@ namespace PIH.Models
             HousingBurdenRatio = housingBurdenRatio;
             HousingConsistencyState = housingConsistencyState;
             EffectiveIncome = effectiveIncome;
+            LastUpdatedDay = lastUpdatedDay;
+            UpdatePartition = updatePartition;
+            Confidence = confidence;
         }
 
         public float CurrentIncome { get; }
 
         public float SmoothedObservedIncome { get; }
-
-        public float ObservedBaseIncome { get; }
 
         public float WorkerContribution { get; }
 
@@ -59,8 +59,6 @@ namespace PIH.Models
         public float GuaranteedTransferAnchor { get; }
 
         public float EarningsAnchorRaw { get; }
-
-        public float StructuralAnchorRaw { get; }
 
         public float AttachmentScore { get; }
 
@@ -81,5 +79,11 @@ namespace PIH.Models
         public HousingConsistencyState HousingConsistencyState { get; }
 
         public float EffectiveIncome { get; }
+
+        public int LastUpdatedDay { get; }
+
+        public int UpdatePartition { get; }
+
+        public PermanentIncomeCacheConfidence Confidence { get; }
     }
 }

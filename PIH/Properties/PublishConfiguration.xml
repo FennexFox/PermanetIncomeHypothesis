@@ -1,16 +1,18 @@
 <Publish>
 	<ModId Value="" />
 	<DisplayName Value="Permanent Income Hypothesis" />
-	<ShortDescription Value="Rebuilds household affordability around effective income, liquid wealth, and longer-run housing means." />
+	<ShortDescription Value="Rebuilds household affordability around transfer-preserving, attachment-gated expected earnings plus bounded durable-goods and liquidity signals." />
 	<LongDescription>
 Permanent Income Hypothesis reworks household affordability in Cities: Skylines II around a broader concept of effective household means.
 
 Instead of relying too heavily on current labor-like income and short-run cash, the mod is being built around:
 
-- labor and transfer income
-- optional employee profit sharing
-- conservative wealth-derived income from liquid wealth
-- a separate liquidity buffer concept for shocks and rent spikes
+- a transfer-preserving structural anchor for households with children or elderly residents
+- an attachment-gated expected-earnings anchor based on employment status, education, and lifecycle
+- a smoothed observed-income baseline to avoid overreacting to short-run shocks
+- weak durable-goods and bounded liquid-wealth signals
+- post-estimation housing-consistency diagnostics rather than housing-driven income inference
+- a household-level cache so multiple affordability systems can share one slower-moving result
 
 The design goal is to reduce false NoMoney pressure and high-rent misclassification for affluent households in expensive housing without turning the game into a free-money faucet.
 	</LongDescription>

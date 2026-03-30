@@ -6,6 +6,6 @@ namespace PIH
         public const string ShortTitle = "Permanent Income";
         public const string Subtitle = "PIH: Friedman's Take";
         public const string Summary =
-            "Rebuilds household affordability around wages, transfers, liquid wealth, and long-run effective income.";
+            "Rebuilds household affordability around transfer-preserving, attachment-gated expected earnings plus bounded durable-goods and liquidity signals.";
     }
 }
