@@ -1,0 +1,45 @@
+name: Bug Report
+description: Report a reproducible runtime issue.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: input
+    id: game_version
+    attributes:
+      label: Game version
+      placeholder: 1.x.xf1
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod version or commit
+      placeholder: 0.1.0 / abc1234
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: List the smallest reliable reproduction path.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, saves, screenshots, or notes
+      placeholder: Paste links or summarize attached evidence.
+

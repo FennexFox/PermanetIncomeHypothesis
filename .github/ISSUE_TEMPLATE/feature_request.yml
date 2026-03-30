@@ -1,0 +1,28 @@
+name: Feature Request
+description: Propose a new mod capability or balancing option.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and non-goals
+      placeholder: Explain what this request should not try to solve.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence or vanilla references
+

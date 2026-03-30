@@ -1,0 +1,57 @@
+name: release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify CSL2 toolchain
+        shell: pwsh
+        run: |
+          if ([string]::IsNullOrWhiteSpace('${{ vars.CSII_TOOLPATH }}')) {
+            throw 'Repository variable CSII_TOOLPATH is required for release builds.'
+          }
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build release
+        shell: pwsh
+        env:
+          CSII_TOOLPATH: ${{ vars.CSII_TOOLPATH }}
+        run: dotnet build PIH.slnx -c Release
+
+      - name: Package build output
+        shell: pwsh
+        run: |
+          $staging = Join-Path $PWD 'artifacts'
+          New-Item -ItemType Directory -Path $staging -Force | Out-Null
+
+          $releaseRoot = Join-Path $PWD 'PIH\bin\Release'
+          if (-not (Test-Path $releaseRoot)) {
+            throw "Build output not found at $releaseRoot"
+          }
+
+          $archive = Join-Path $staging 'PermanentIncomeHypothesis-release.zip'
+          if (Test-Path $archive) {
+            Remove-Item $archive -Force
+          }
+
+          Compress-Archive -Path (Join-Path $releaseRoot '*') -DestinationPath $archive
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PermanentIncomeHypothesis-release
+          path: artifacts/PermanentIncomeHypothesis-release.zip

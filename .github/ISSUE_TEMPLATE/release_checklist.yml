@@ -1,0 +1,27 @@
+name: Release Checklist
+description: Track the minimum release readiness checks.
+title: "[Release]: "
+labels:
+  - release
+body:
+  - type: checkboxes
+    id: docs
+    attributes:
+      label: Documentation
+      options:
+        - label: README matches the release scope
+        - label: PublishConfiguration.xml matches the release version and copy
+        - label: Changelog is updated
+  - type: checkboxes
+    id: validation
+    attributes:
+      label: Validation
+      options:
+        - label: Release build completed
+        - label: Settings defaults were reviewed
+        - label: Runtime claims are supported by current evidence
+  - type: textarea
+    id: notes
+    attributes:
+      label: Release notes or open risks
+

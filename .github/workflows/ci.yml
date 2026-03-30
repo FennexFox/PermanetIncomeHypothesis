@@ -1,0 +1,53 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - "feature/**"
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Validate scaffold
+        shell: pwsh
+        run: |
+          $required = @(
+            'README.md',
+            'PIH.slnx',
+            'PIH/PIH.csproj',
+            'PIH/Mod.cs',
+            '.github/pull_request_template.md'
+          )
+
+          foreach ($path in $required) {
+            if (-not (Test-Path $path)) {
+              throw "Missing required path: $path"
+            }
+          }
+
+      - name: Build mod
+        if: ${{ vars.CSII_TOOLPATH != '' }}
+        shell: pwsh
+        env:
+          CSII_TOOLPATH: ${{ vars.CSII_TOOLPATH }}
+        run: dotnet build PIH.slnx -c Release
+
+      - name: Skip message
+        if: ${{ vars.CSII_TOOLPATH == '' }}
+        shell: pwsh
+        run: Write-Host "CSII_TOOLPATH repository variable is not configured; skipping mod build."
+

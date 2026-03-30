@@ -1,0 +1,28 @@
+<Publish>
+	<ModId Value="" />
+	<DisplayName Value="Permanent Income Hypothesis" />
+	<ShortDescription Value="Rebuilds household affordability around effective income, liquid wealth, and longer-run housing means." />
+	<LongDescription>
+Permanent Income Hypothesis reworks household affordability in Cities: Skylines II around a broader concept of effective household means.
+
+Instead of relying too heavily on current labor-like income and short-run cash, the mod is being built around:
+
+- labor and transfer income
+- optional employee profit sharing
+- conservative wealth-derived income from liquid wealth
+- a separate liquidity buffer concept for shocks and rent spikes
+
+The design goal is to reduce false NoMoney pressure and high-rent misclassification for affluent households in expensive housing without turning the game into a free-money faucet.
+	</LongDescription>
+	<Thumbnail Value="Properties/Thumbnail.png" />
+	<Screenshot Value="" />
+	<Tag Value="" />
+	<ForumLink Value="" />
+	<ModVersion Value="0.1.0" />
+	<GameVersion Value="1.*" />
+	<Dependency Id="" />
+	<RequiredDLC Value="" />
+	<ChangeLog Value="Initial repository scaffold with calculator, settings, docs, and generalized GitHub workflow structure." />
+	<ExternalLink Type="" Url="" />
+	<AccessLevel Value="Public" />
+</Publish>

@@ -1,0 +1,43 @@
+name: Evidence
+description: Capture structured evidence for a runtime claim or balancing result.
+title: "[Evidence]: "
+labels:
+  - evidence
+body:
+  - type: input
+    id: build
+    attributes:
+      label: Build or commit under test
+    validations:
+      required: true
+  - type: input
+    id: scenario
+    attributes:
+      label: City, save, or scenario
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim being supported
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method
+      placeholder: Explain how the evidence was collected.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+    validations:
+      required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Artifacts
+      placeholder: Logs, screenshots, save links, or spreadsheets.
+

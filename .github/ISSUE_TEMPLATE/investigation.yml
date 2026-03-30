@@ -1,0 +1,31 @@
+name: Investigation
+description: Track a suspected simulation issue or uncertain call path.
+title: "[Investigation]: "
+labels:
+  - investigation
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Investigation question
+    validations:
+      required: true
+  - type: textarea
+    id: current_evidence
+    attributes:
+      label: Current evidence
+      placeholder: Include source references, logs, and what is confirmed vs inferred.
+    validations:
+      required: true
+  - type: textarea
+    id: suspected_systems
+    attributes:
+      label: Suspected systems or call sites
+      placeholder: HouseholdBehaviorSystem, RentAdjustSystem, helper methods, etc.
+  - type: textarea
+    id: next_step
+    attributes:
+      label: Next concrete step
+    validations:
+      required: true
+

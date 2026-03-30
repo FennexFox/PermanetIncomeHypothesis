@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Docs And Workflow
+    url: https://github.com/FennexFox/PIH
+    about: Read the repository docs before filing a report or investigation.
+
